@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Kevin Hirsch. All rights reserved.
 //
 
-#if os(iOS)
-
 import UIKit
 
 public typealias Index = Int
@@ -357,22 +355,13 @@ public final class DropDown: UIView {
      
      Changing the cell nib automatically reloads the drop down.
      */
-	public var cellNib = UINib(nibName: "DropDownCell", bundle: bundle) {
+	public var cellNib = UINib(nibName: "DropDownCell", bundle: Bundle(for: DropDownCell.self)) {
 		didSet {
 			tableView.register(cellNib, forCellReuseIdentifier: DPDConstant.ReusableIdentifier.DropDownCell)
 			templateCell = nil
 			reloadAllComponents()
 		}
 	}
-
-  /// Correctly specify Bundle for Swift Packages
-  fileprivate static var bundle: Bundle {
-    #if SWIFT_PACKAGE
-    return Bundle.module
-    #else
-    return Bundle(for: DropDownCell.self)
-    #endif
-  }
 	
 	//MARK: Content
 
@@ -1205,5 +1194,3 @@ private extension DispatchQueue {
 		}
 	}
 }
-
-#endif
