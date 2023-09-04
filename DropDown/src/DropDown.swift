@@ -15,7 +15,7 @@ public typealias MultiSelectionClosure = ([Index], [String]) -> Void
 public typealias ConfigurationClosure = (Index, String) -> String
 public typealias CellConfigurationClosure = (Index, String, DropDownCell) -> Void
 private typealias ComputeLayoutTuple = (x: CGFloat, y: CGFloat, width: CGFloat, offscreenHeight: CGFloat)
-
+/////
 /// Can be `UIView` or `UIBarButtonItem`.
 @objc
 public protocol AnchorView: class {
